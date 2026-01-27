@@ -1,19 +1,19 @@
 services:
-  kupuri-landing:
+  :
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: kupuri-landing
+    container_name: 
     restart: unless-stopped
     networks:
       - coolify
     labels:
       - traefik.enable=true
-      - traefik.http.routers.kupuri-landing.rule=Host()
-      - traefik.http.routers.kupuri-landing.entrypoints=websecure
-      - traefik.http.routers.kupuri-landing.tls=true
-      - traefik.http.routers.kupuri-landing.tls.certresolver=letsencrypt
-      - traefik.http.services.kupuri-landing.loadbalancer.server.port=3000
+      - traefik.http.routers..rule=Host(\${HOSTNAME}\\)
+      - traefik.http.routers..entrypoints=websecure
+      - traefik.http.routers..tls=true
+      - traefik.http.routers..tls.certresolver=letsencrypt
+      - traefik.http.services..loadbalancer.server.port=3000
 
 networks:
   coolify:

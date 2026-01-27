@@ -1,31 +1,12 @@
-# syntax=docker/dockerfile:1
-
-FROM node:20-alpine AS deps
+FROM node:20-alpine
 WORKDIR /app
+
 COPY package.json package-lock.json ./
 RUN npm ci
 
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
-FROM node:20-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-
-# Copy minimal runtime assets
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/package-lock.json ./package-lock.json
-COPY --from=builder /app/next.config.* ./ 2>/dev/null || true
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-
-# Install production deps only
-RUN npm ci --omit=dev && npm cache clean --force
-
 EXPOSE 3000
-CMD ["npm", "run", "start", "--", "-p", "3000"]
+CMD [\npm\, \run\, \start\]
