@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dos Agencias Creativas. Una Visión. Combinando la misión de Yvette (CYNTHIA™) con el estudio creativo de Bamboo (KUPURI STUDIOS) para crear un powerhouse creativo para América Latina.">
+  <title>Kupuri Studios - Tu Socio Creativo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #000000;
+      color: #F8FAFC;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .hero-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/kupuri-mexico-city-night.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .dark-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-badge {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      padding: 0.75rem 1.5rem;
+      box-shadow: 0 25rem 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(248, 163, 22, 0.1);
+      transition: opacity 0.3s;
+    }
+
+    .logo-badge:hover {
+      opacity: 0.8;
+    }
+
+    .logo-text {
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    .logo-text-small {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+    }
+
+    .headline {
+      color: #FFFFFF;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.3);
+      font-family: 'Outfit', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .subheadline {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+      max-width: 72rem;
+      width: 100%;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 50rem 1rem 2rem rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title-small {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .card-description {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .card-description-small {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-detail {
+      color: #FFFFFF;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .cta-container {
+      position: relative;
+      z-index: 20;
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+      color: #FFFFFF;
+      box-shadow: 0 25rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 50rem 1rem 2rem rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      color: #FFFFFF;
+      box-shadow: 0 10px 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .cta-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .cta-icon {
+      margin-right: 0.5rem;
+    }
+
+    .cta-text {
+      margin-left: 0.5rem;
+    }
+
+    .footer {
+      margin-top: 4rem;
+      padding: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    .footer-emoji {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-text {
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .floating-orb {
+      position: absolute;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      blur: 3rem;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      position: absolute;
+      top: 5rem;
+      left: 5rem;
+      width: 4rem;
+      height: 4rem;
+      background: #F59E0B;
+      border-radius: 50%;
+      blur: 3rem;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .orb-2 {
+      position: absolute;
+      top: 10rem;
+      right: 5rem;
+      width: 4rem;
+      height: 4rem;
+      background: #6366F1;
+      border-radius: 50%;
+      blur: 3rem;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .orb-3 {
+      position: absolute;
+      bottom: 8rem;
+      right: 8rem;
+      width: 3rem;
+      height: 3rem;
+      background: #8B5CF6;
+      border-radius: 50%;
+      blur: 2rem;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    @media (max-width: 640px) {
+      .headline {
+        font-size: 2rem;
+      }
+
+      .subheadline {
+        font-size: 1.25rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .cta-container {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .content {
+        padding: 4rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-container">
+    <div class="hero-bg"></div>
+    <div class="dark-overlay"></div>
+    <div class="content">
+      
+      <!-- Logo Badge -->
+      <div class="logo-badge">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#FFFFFF" stroke-width="1"/>
+          <path d="M12 16l-4-4-4h-4 4H4v6a3 6 12H16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="logo-text">Kupuri Studios</div>
+        <div class="logo-text-small">Tu Socio Creativo</div>
+      </div>
+
+      <!-- Hero Content -->
+      <h1 class="headline">Dos Agencias. Una Visión.</h1>
+      <p class="subheadline">Combinando la misión de Yvette (CYNTHIA™) con el estudio creativo de Bamboo (KUPURI STUDIOS)</p>
+
+      <!-- Ecosystem Cards -->
+      <div class="ecosystem-grid">
+        
+        <!-- SYNTHIA Card -->
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3 class="card-title">SYNTHIA™</h3>
+          <p class="card-title-small">Tu Asistente Autónomo</p>
+          <p class="card-description">Yvette's AI Assistant para Emprendedoras Mexicanas</p>
+          <p class="card-description-small">WhatsApp AI + Marketing Programático + Memoria Infinita</p>
+          <p class="card-detail">WhatsApp AI + Marketing Programático + Memoria Infinita</p>
+          <p class="card-description">Tu Asistente de Negocios</p>
+        </div>
+
+        <!-- Kupuri Studios Card -->
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3 class="card-title">KUPURI STUDIOS</h3>
+          <p class="card-title-small">Tu Socio Creativo</p>
+          <p class="card-description">Diseño • Construcción • Estrategia</p>
+          <p class="card-description-small">Tu Agencia Creativa</p>
+          <p class="card-detail">Tu Agencia Creativa</p>
+        </div>
+
+        <!-- THE PAULI EFFECT Card -->
+        <div class="card">
+          <div class="card-icon">🎭</div>
+          <h3 class="card-title">THE PAULI EFFECT</h3>
+          <p class="card-title-small">Comics • Universo • Conocimiento de 7 Generaciones</p>
+          <p class="card-description">Comics • Universo • Conocimiento de 7 Generaciones</p>
+          <p class="card-detail">Comics • Universo • Conocimiento de 7 Generaciones</p>
+        </div>
+
+        <!-- JAZZ APP Card -->
+        <div class="card">
+          <div class="card-icon">🎵</div>
+          <h3 class="card-title">JAZZ APP</h3>
+          <p class="card-title-small">Marketplace para Creadores</p>
+          <p class="card-description">Pagos con Tokens • Herramientas de Creación • Contenido Dinámico</p>
+          <p class="card-description-small">Pagos con Tokens • Herramientas de Creación • Contenido Dinámico</p>
+          <p class="card-detail">Pagos con Tokens • Herramientas de Creación • Contenido Dinámico</p>
+        </div>
+      </div>
+
+      <!-- CTA Container -->
+      <div class="cta-container">
+        <a href="/contact" class="cta-button cta-primary">
+          <svg class="cta-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 16.7 16l-2 2 8c-.7 4.9-6.1a2 2 8c-5.4 3.4-3.4-6a2 3.5 3.5-3.5a3.4 3.5l-3.5l-3.5 2.6l-3.5 2.6L8.5 0 0 0 0 0z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="cta-text">Agendar Consulta</span>
+        </a>
+        <a href="/projects" class="cta-button cta-secondary">
+          <svg class="cta-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 5l9 20 5l13 19 5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="cta-text">Ver Nuestros Estudios</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Floating Orbs -->
+    <div class="floating-orb orb-1"></div>
+    <div class="orb-2"></div>
+    <div class="orb-3"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-emoji">✨🇲🇽✨</div>
+      <div class="footer-text">Dos Agencias. Una Visión.</div>
+      <div class="footer-text">Creando Magia Juntos para América Latina</div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "kupuri-studios-landing",
+  "version": "1.0.0",
+  "builds": {
+    "src": "public",
+    "use": "@vercel/static"
+  }
+}

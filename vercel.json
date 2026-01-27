@@ -1,0 +1,6 @@
+{
+  "name": "kupuri-studios-landing",
+  "version": 2,
+  "buildCommand": "echo 'No build needed - pure HTML'",
+  "outputDirectory": "public"
+}
