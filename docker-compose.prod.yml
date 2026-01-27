@@ -12,15 +12,16 @@ services:
 
       # HTTP -> HTTPS redirect
       - traefik.http.middlewares.kupuri-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.kupuri-landing-web.rule=Host(kupuri.31.220.58.212.sslip.io)
-      - traefik.http.routers.kupuri-landing-web.entrypoints=web
-      - traefik.http.routers.kupuri-landing-web.middlewares=kupuri-https-redirect
+      - traefik.http.routers.kupuri-landing-http.rule=Host(`kupuri.31.220.58.212.sslip.io`)
+      - traefik.http.routers.kupuri-landing-http.entrypoints=http
+      - traefik.http.routers.kupuri-landing-http.middlewares=kupuri-https-redirect
 
       # HTTPS site
-      - traefik.http.routers.kupuri-landing.rule=Host(kupuri.31.220.58.212.sslip.io)
-      - traefik.http.routers.kupuri-landing.entrypoints=websecure
-      - traefik.http.routers.kupuri-landing.tls=true
-      - traefik.http.routers.kupuri-landing.tls.certresolver=letsencrypt
+      - traefik.http.routers.kupuri-landing-https.rule=Host(`kupuri.31.220.58.212.sslip.io`)
+      - traefik.http.routers.kupuri-landing-https.entrypoints=https
+      - traefik.http.routers.kupuri-landing-https.tls=true
+      - traefik.http.routers.kupuri-landing-https.tls.certresolver=letsencrypt
+      - traefik.http.routers.kupuri-landing-https.service=kupuri-landing
       - traefik.http.services.kupuri-landing.loadbalancer.server.port=3000
 
 networks:

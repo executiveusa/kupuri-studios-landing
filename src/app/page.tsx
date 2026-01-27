@@ -35,7 +35,6 @@ export default function HomePage() {
           <div className="relative z-10 max-w-4xl">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ once: true }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               className="text-5xl font-bold text-white mb-6"
@@ -49,7 +48,6 @@ export default function HomePage() {
 
             <motion.p
               initial={{ opacity: 0, y: 15 }}
-              whileInView={{ once: true }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
               className="text-3xl font-semibold text-white/90 mb-4 leading-tight tracking-wide"
