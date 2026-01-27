@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Prevent concurrent runs (systemd path can trigger multiple times quickly)
+LOCK_FILE="/tmp/kupuri-deploy.lock"
+exec 9>"$LOCK_FILE"
+if ! flock -n 9; then
+  echo "⏳ Deploy already running; exiting."
+  exit 0
+fi
+
 echo "=========================================="
 echo "🚀 Kupuri Studios - Auto Deployment Script"
 echo "=========================================="
@@ -8,6 +16,9 @@ echo ""
 
 # Navigate to project directory
 cd /root/clawd/kupuri-studios-landing
+
+# Clean up stale git locks (can be left behind after a crash)
+rm -f .git/index.lock || true
 
 echo "📂 Project Directory: $(pwd)"
 echo ""
